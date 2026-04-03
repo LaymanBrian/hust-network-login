@@ -65,71 +65,71 @@ jobs:
       matrix:
         platform:
           - os_name: FreeBSD-x86_64
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: x86_64-unknown-freebsd
             bin: hust-network-login
             skip_tests: true
           - os_name: Linux-x86_64
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: x86_64-unknown-linux-musl
             bin: hust-network-login
           - os_name: Linux-aarch64
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: aarch64-unknown-linux-musl
             bin: hust-network-login
           - os_name: Linux-arm
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: arm-unknown-linux-musleabi
             bin: hust-network-login
           - os_name: Linux-i686
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: i686-unknown-linux-musl
             bin: hust-network-login
             skip_tests: true
           - os_name: Linux-mips
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: mips-unknown-linux-musl
             bin: hust-network-login
           - os_name: Linux-mipsel
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: mipsel-unknown-linux-musl
             bin: hust-network-login
           - os_name: Linux-mips64
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: mips64-unknown-linux-muslabi64
             bin: hust-network-login
             skip_tests: true
           - os_name: Linux-mips64el
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: mips64el-unknown-linux-muslabi64
             bin: hust-network-login
             skip_tests: true
           - os_name: Linux-powerpc
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: powerpc-unknown-linux-gnu
             bin: hust-network-login
             skip_tests: true
           - os_name: Linux-powerpc64
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: powerpc64-unknown-linux-gnu
             bin: hust-network-login
             skip_tests: true
           - os_name: Linux-powerpc64le
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: powerpc64le-unknown-linux-gnu
             bin: hust-network-login
             skip_tests: true
           - os_name: Linux-riscv64
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: riscv64gc-unknown-linux-gnu
             bin: hust-network-login
           - os_name: Linux-s390x
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: s390x-unknown-linux-gnu
             bin: hust-network-login
             skip_tests: true
           - os_name: NetBSD-x86_64
-            os: ubuntu-20.04
+            os: ubuntu-latest
             target: x86_64-unknown-netbsd
             bin: hust-network-login
             skip_tests: true
