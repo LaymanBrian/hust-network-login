@@ -86,24 +86,6 @@ jobs:
             target: i686-unknown-linux-musl
             bin: hust-network-login
             skip_tests: true
-          - os_name: Linux-mips
-            os: ubuntu-latest
-            target: mips-unknown-linux-musl
-            bin: hust-network-login
-          - os_name: Linux-mipsel
-            os: ubuntu-latest
-            target: mipsel-unknown-linux-musl
-            bin: hust-network-login
-          - os_name: Linux-mips64
-            os: ubuntu-latest
-            target: mips64-unknown-linux-muslabi64
-            bin: hust-network-login
-            skip_tests: true
-          - os_name: Linux-mips64el
-            os: ubuntu-latest
-            target: mips64el-unknown-linux-muslabi64
-            bin: hust-network-login
-            skip_tests: true
           - os_name: Linux-powerpc
             os: ubuntu-latest
             target: powerpc-unknown-linux-gnu
@@ -126,11 +108,6 @@ jobs:
           - os_name: Linux-s390x
             os: ubuntu-latest
             target: s390x-unknown-linux-gnu
-            bin: hust-network-login
-            skip_tests: true
-          - os_name: NetBSD-x86_64
-            os: ubuntu-latest
-            target: x86_64-unknown-netbsd
             bin: hust-network-login
             skip_tests: true
           - os_name: Windows-aarch64
