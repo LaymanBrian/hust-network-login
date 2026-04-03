@@ -1,6 +1,7 @@
 mod encrypt;
 use std::fs;
 use std::time::Duration;
+use std::process::Command;
 use std::{io, thread};
 
 fn extract<'a>(text: &'a str, prefix: &'a str, suffix: &'a str) -> io::Result<&'a str> {
@@ -15,11 +16,21 @@ fn extract<'a>(text: &'a str, prefix: &'a str, suffix: &'a str) -> io::Result<&'
 }
 
 fn login(username: &str, password: &str) -> io::Result<()> {
-    let resp = minreq::get("http://www.baidu.com")
+    // If baidu is directly reachable, network is already available.
+    let ping_ok = Command::new("ping")
+        .args(["-c", "1", "-W", "1", "www.baidu.com"])
+        .status()
+        .map(|status| status.success())
+        .unwrap_or(false);
+    if ping_ok {
+        return Ok(());
+    }
+
+    let resp = minreq::get("http://172.18.18.60:8080")
         .with_timeout(10)
         .send()
         .map_err(|e| {
-            println!("baidu boom! {}", e);
+            println!("probe endpoint boom! {}", e);
             io::ErrorKind::ConnectionRefused
         })?;
     let resp = resp.as_str().map_err(|e| {
