@@ -1,7 +1,8 @@
 mod encrypt;
 use std::fs;
-use std::time::Duration;
 use std::process::Command;
+use std::process::Stdio;
+use std::time::Duration;
 use std::{io, thread};
 
 fn extract<'a>(text: &'a str, prefix: &'a str, suffix: &'a str) -> io::Result<&'a str> {
@@ -17,8 +18,16 @@ fn extract<'a>(text: &'a str, prefix: &'a str, suffix: &'a str) -> io::Result<&'
 
 fn login(username: &str, password: &str) -> io::Result<()> {
     // If baidu is directly reachable, network is already available.
-    let ping_ok = Command::new("ping")
-        .args(["-c", "1", "-W", "1", "www.baidu.com"])
+    let mut ping_cmd = Command::new("ping");
+    if cfg!(target_os = "windows") {
+        ping_cmd.args(["-n", "1", "-w", "1000", "www.baidu.com"]);
+    } else {
+        ping_cmd.args(["-c", "1", "-W", "1", "www.baidu.com"]);
+    }
+
+    let ping_ok = ping_cmd
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
         .status()
         .map(|status| status.success())
         .unwrap_or(false);
